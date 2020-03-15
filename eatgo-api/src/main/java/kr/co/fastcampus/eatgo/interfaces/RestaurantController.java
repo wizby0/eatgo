@@ -10,9 +10,14 @@ import java.util.List;
 @RestController
 public class RestaurantController {
 
-    @GetMapping("/restuarants")
+    @GetMapping("/restaurants")
     public List<Restaurant> list(){
         List<Restaurant> restaurants = new ArrayList<>();
-        return null;
+
+        Restaurant restaurant = new Restaurant(1004L,"Bob zip","Seoul");
+
+        restaurants.add(restaurant);
+
+        return restaurants;
     }
 }
