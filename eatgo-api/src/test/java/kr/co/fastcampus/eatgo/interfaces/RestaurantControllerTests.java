@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.core.StringContains.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -21,7 +22,7 @@ public class RestaurantControllerTests {
 
     @Test
     public void list() throws Exception {
-        mvc.perform(get("/restuarants"))
+        mvc.perform(get("/restaurants"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
                         containsString("\"id\":1004")
@@ -31,5 +32,12 @@ public class RestaurantControllerTests {
                 ));
 
 
+    }
+
+    @Test
+    public void detail() throws Exception {
+        mvc.perform(get("/restaurants/1"))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }

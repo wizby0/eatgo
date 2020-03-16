@@ -20,4 +20,9 @@ public class RestaurantController {
 
         return restaurants;
     }
+
+    @GetMapping("/restaurants/1")
+    public Restaurant detail(){
+        return null;
+    }
 }
