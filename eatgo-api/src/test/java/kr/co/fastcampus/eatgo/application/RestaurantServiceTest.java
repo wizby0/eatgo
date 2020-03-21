@@ -48,7 +48,7 @@ public class RestaurantServiceTest {
         restaurants.add(restaurant);
         given(restaurantRepository.findAll()).willReturn(restaurants);
 
-        given(restaurantRepository.findbyId(1004L)).willReturn(restaurant);
+        given(restaurantRepository.findById(1004L)).willReturn(java.util.Optional.of(restaurant));
 
 
 
