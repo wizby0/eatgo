@@ -99,5 +99,19 @@ public class RestaurantServiceTest {
 
     }
 
+    @Test
+    public void updateRestaurant(){
+        Restaurant restaurant = new Restaurant(1004L,"Bob zip","Seoul");
+
+        given(restaurantRepository.findById(1004L))
+                .willReturn(java.util.Optional.of(restaurant));
+
+        Restaurant updated = restaurantService.updateRestaurant(1004L,"Sool zip","Busan");
+
+        assertThat(restaurant.getName(),is("Sool zip"));
+        assertThat(restaurant.getAddress(),is("Busan"));
+
+    }
+
 
 }
